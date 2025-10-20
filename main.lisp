@@ -95,7 +95,9 @@
     (as-> (.split t " - ") x
           (lfor it x (.time (datetime.datetime.strptime it "%I:%M %p")))
           (lfor it x (datetime.datetime.combine (get row "Start Date") it))
-          ; In fact, this isn't due to the ical format being fucked, it is due to workday giving WRONG FUCKING INFORMATION
+          ; This is needed because:
+          ; - The ical format requires that the repeating bydays thing (not byweekdays. That also caused things to be wrong. In spite of the docs saying that I should do that) not have days that are earlier in the week than the start date.
+          ; - The day that terms start is not always Monday....
           (lfor it x (round_to_monday it))
           (lfor it x (+ it day_delta))
           (setv [sta end] x)
