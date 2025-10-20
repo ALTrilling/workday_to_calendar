@@ -1,0 +1,17 @@
+[project]
+name = "course-calendar"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "hy>=1.1.0",
+    "hyrule>=1.0.0",
+    "icalendar>=6.3.1",
+    "numpy>=2.3.4",
+    "openpyxl>=3.1.5",
+    "redis>=6.4.0",
+    "rich>=14.2.0",
+    "typer>=0.19.2",
+    "watchfiles>=1.1.1",
+]
